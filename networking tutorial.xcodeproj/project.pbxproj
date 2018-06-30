@@ -13,6 +13,7 @@
 		A760CE2420E70E090037EB08 /* networking_tutorial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A760CE2220E70E090037EB08 /* networking_tutorial.xcdatamodeld */; };
 		A760CE2620E70E090037EB08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A760CE2520E70E090037EB08 /* Assets.xcassets */; };
 		A760CE2920E70E090037EB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A760CE2720E70E090037EB08 /* LaunchScreen.storyboard */; };
+		A760CE3120E70E440037EB08 /* networkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A760CE3020E70E440037EB08 /* networkingAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A760CE2520E70E090037EB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A760CE2820E70E090037EB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A760CE2A20E70E090037EB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A760CE3020E70E440037EB08 /* networkingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkingAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A760CE1A20E70E090037EB08 /* networking tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				A760CE3020E70E440037EB08 /* networkingAPI.swift */,
 				A760CE1B20E70E090037EB08 /* AppDelegate.swift */,
 				A760CE1D20E70E090037EB08 /* ViewController.swift */,
 				A760CE1F20E70E090037EB08 /* Main.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A760CE3120E70E440037EB08 /* networkingAPI.swift in Sources */,
 				A760CE1E20E70E090037EB08 /* ViewController.swift in Sources */,
 				A760CE1C20E70E090037EB08 /* AppDelegate.swift in Sources */,
 				A760CE2420E70E090037EB08 /* networking_tutorial.xcdatamodeld in Sources */,
