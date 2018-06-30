@@ -32,6 +32,15 @@ class ViewController: UIViewController {
             }
         }
     }
+    //Tap a button to send a post request
+    @IBAction func postButtonTapped(_ sender: UIButton) {
+        let myPost = Post(userId: 1, id: 1, title: "Hello world", body: "How are you feeling")
+        submitPost(post: myPost){ (error) in
+            if let error = error{
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
     
 }
 
