@@ -14,7 +14,12 @@ struct Post: Codable {
     let title: String
     let body: String
 }
-
+struct Posting: Codable{
+    let userEmail: String
+    let userName: String
+    let latitude: Double
+    let longitude: Double
+}
 //enumeration defines common type for a group of related values and enables you to work with those values in a type safe way
 //in this case, the enum describes cases of a result (success, failure) with a value
 enum Result<Value> {
@@ -78,7 +83,7 @@ func getPosts(for userId: Int, completion: ((Result<[Post]>) -> Void)?) {
     task.resume()
 }
 //completion block that returns an error if something goes wrong
-func submitPost(post: Post, completion: ((Error?) -> Void)?) {
+func submitPost(post: Posting, completion: ((Error?) -> Void)?) {
     //Creating the url which will be used for the GET request
     var urlComponents = URLComponents()
     //request scheme
@@ -130,41 +135,4 @@ func submitPost(post: Post, completion: ((Error?) -> Void)?) {
 }
 
 
-// Helper method to get a URL to the user's documents directory
-// see https://developer.apple.com/icloud/documentation/data-storage/index.html
-func getDocumentsURL() -> URL {
-    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-        return url
-    } else {
-        fatalError("Could not retrieve documents directory")
-    }
-}
 
-func savePostsToDisk(posts: [Post]) {
-    // 1. Create a URL for documents-directory/posts.json
-    let url = getDocumentsURL().appendingPathComponent("posts.json")
-    // 2. Endcode our [Post] data to JSON Data
-    let encoder = JSONEncoder()
-    do {
-        let data = try encoder.encode(posts)
-        // 3. Write this data to the url specified in step 1
-        try data.write(to: url, options: [])
-    } catch {
-        fatalError(error.localizedDescription)
-    }
-}
-
-func getPostsFromDisk() -> [Post] {
-    // 1. Create a url for documents-directory/posts.json
-    let url = getDocumentsURL().appendingPathComponent("posts.json")
-    let decoder = JSONDecoder()
-    do {
-        // 2. Retrieve the data on the file in this path (if there is any)
-        let data = try Data(contentsOf: url, options: [])
-        // 3. Decode an array of Posts from this Data
-        let posts = try decoder.decode([Post].self, from: data)
-        return posts
-    } catch {
-        fatalError(error.localizedDescription)
-    }
-}
